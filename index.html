@@ -21,7 +21,8 @@
 <script>
 function verify(){
  let id=document.getElementById("cid").value;
- fetch("http://localhost:5000/verify/"+id)
+ fetch("https://gov-portal-backend.onrender.com
+"+id)
  .then(r=>r.json())
  .then(d=>{
    if(d.success){
@@ -35,3 +36,4 @@ function verify(){
 </script>
 </body>
 </html>
+
