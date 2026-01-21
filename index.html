@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Certificate Verification | Gov Portal</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>Government of India</h1>
+  <h2>Civil Registration Verification Portal</h2>
+</header>
+
+<div class="card">
+  <h3>Verify Certificate</h3>
+  <input id="cid" placeholder="Enter Certificate ID">
+  <button onclick="verify()">Verify</button>
+  <p id="msg"></p>
+</div>
+
+<script>
+function verify(){
+ let id=document.getElementById("cid").value;
+ fetch("http://localhost:5000/verify/"+id)
+ .then(r=>r.json())
+ .then(d=>{
+   if(d.success){
+     localStorage.setItem("cert",JSON.stringify(d.data));
+     window.location="result.html";
+   } else {
+     document.getElementById("msg").innerText="❌ Certificate Not Found";
+   }
+ });
+}
+</script>
+</body>
+</html>

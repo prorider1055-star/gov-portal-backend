@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Admin Panel</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h2>Admin - Add Certificate</h2>
+
+<input placeholder="ID" id="id"><br>
+<input placeholder="Name" id="name"><br>
+<input placeholder="DOB" id="dob"><br>
+<input placeholder="Father" id="father"><br>
+<input placeholder="Mother" id="mother"><br>
+<input placeholder="Address" id="address"><br>
+
+<button onclick="add()">Save</button>
+<p id="msg"></p>
+
+<script>
+function add(){
+ let data={
+   id:id.value,
+   name:name.value,
+   dob:dob.value,
+   father:father.value,
+   mother:mother.value,
+   address:address.value
+ };
+
+ fetch("http://localhost:5000/add",{
+   method:"POST",
+   headers:{'Content-Type':'application/json'},
+   body:JSON.stringify(data)
+ }).then(r=>r.json()).then(d=>{
+   if(d.success) msg.innerText="✅ Saved";
+ });
+}
+</script>
+</body>
+</html>

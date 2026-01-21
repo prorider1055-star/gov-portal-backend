@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Certificate Verified</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+<h2>Certificate Verification Result</h2>
+</header>
+
+<table id="table"></table>
+
+<h3>QR Verification</h3>
+<img id="qr">
+
+<script>
+let data = JSON.parse(localStorage.getItem("cert"));
+
+document.getElementById("table").innerHTML = `
+<tr><td>ID</td><td>${data.id}</td></tr>
+<tr><td>Name</td><td>${data.name}</td></tr>
+<tr><td>DOB</td><td>${data.dob}</td></tr>
+<tr><td>Father</td><td>${data.father}</td></tr>
+<tr><td>Mother</td><td>${data.mother}</td></tr>
+<tr><td>Address</td><td>${data.address}</td></tr>
+`;
+
+let qrurl = "https://api.qrserver.com/v1/create-qr-code/?size=200x200&data="
++ encodeURIComponent("http://localhost:5000/verify/"+data.id);
+
+document.getElementById("qr").src = qrurl;
+</script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+body{font-family:Arial;background:#f4f6f8;text-align:center}
+header{background:#234a7d;color:white;padding:15px}
+.card{background:white;padding:20px;margin:30px auto;width:300px;box-shadow:0 0 10px #aaa}
+input{margin:5px;padding:8px;width:90%}
+button{padding:8px 15px;background:#234a7d;color:white;border:none}
+table{margin:auto;background:white;border-collapse:collapse}
+td{border:1px solid #ccc;padding:8px}
